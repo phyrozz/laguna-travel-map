@@ -1,6 +1,9 @@
-import { useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import './App.css';
 import "./font.css";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faXmark } from '@fortawesome/free-solid-svg-icons';
+
 
 const LagunaMap = () => {
     const [points, setPoints] = useState(0);
@@ -9,6 +12,8 @@ const LagunaMap = () => {
     const [selectedMunicipality, setSelectedMunicipality] = useState(null);
     const [municipalities, setMunicipalities] = useState({});
     const [hoveredMunicipality, setHoveredMunicipality] = useState(null);
+    const [showOptions, setShowOptions] = useState(false);
+    const dropdownRef = useRef(null);
 
     const addPoints = (value) => {
         setPoints((prev) => prev + value);
@@ -28,13 +33,28 @@ const LagunaMap = () => {
 
     const handleMunicipalityClick = (e) => {
         const bbox = e.target.getBBox();
-        setDropdownCoords({ x: bbox.x / 3, y: bbox.y / 2.5 });
+        setDropdownCoords({ x: bbox.x / 3, y: bbox.y / 4 });
         const municipality = e.target.id;
         setSelectedMunicipality(municipality);
         if (!municipalities[municipality]) {
         setMunicipalities(prev => ({...prev, [municipality]: 'never-been'}))
         }
+        
     };
+
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+                setShowOptions(false);
+            }
+        };
+    
+        document.addEventListener("click", handleClickOutside);
+    
+        return () => {
+          document.removeEventListener("click", handleClickOutside);
+        };
+    }, [dropdownRef]);
     
     const handleStatusChange = (e) => {
         const { value } = e.target;
@@ -59,15 +79,15 @@ const LagunaMap = () => {
 
         switch (municipalities[municipality]) {
         case 'lived':
-            return '#E21818';
+            return '#D14545';
         case 'stayed':
-            return '#FF7F3F';
+            return '#DF8c63';
         case 'visited':
             return '#FFDD83';
         case 'alighted':
             return '#98DFD6';
         case 'passed':
-            return '#00235D';
+            return '#2C5496';
         default:
             return '#ffffff';
         }
@@ -88,6 +108,7 @@ const LagunaMap = () => {
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 2400 2400"
                 onMouseMove={handleMouseMove}
+                onClick={() => setShowOptions(!showOptions)}
                 >
                     <rect id="bg" className="map-bg" width="2400" height="2400" />
                     <polygon
@@ -393,7 +414,7 @@ const LagunaMap = () => {
                     <Tooltip x={tooltipCoords.x} y={tooltipCoords.y} municipality={hoveredMunicipality.replace(/_/g, " ")} />
                 )}
                 {dropdownCoords && (
-                    <div className="options-container" style={{ top: dropdownCoords.y, left: dropdownCoords.x }}>
+                    <div className="options-container" ref={dropdownRef} style={{ top: dropdownCoords.y, left: dropdownCoords.x }}>
                         <p>{selectedMunicipality.replace(/_/g, " ")}</p>
                         <div className="options">
                             <button value="lived" onClick={handleStatusChange}>Lived there</button>
@@ -401,7 +422,7 @@ const LagunaMap = () => {
                             <button value="visited" onClick={handleStatusChange}>Visited there</button>
                             <button value="alighted" onClick={handleStatusChange}>Alighted there</button>
                             <button value="passed" onClick={handleStatusChange}>Passed there</button>
-                            <button value="never-been" onClick={handleStatusChange}>Never been there</button>
+                            <button value="never-been" onClick={handleStatusChange}>Never been there <FontAwesomeIcon icon={faXmark} /></button>
                         </div>
                     </div>
                 )}
@@ -409,14 +430,14 @@ const LagunaMap = () => {
                     <h1><strong>Laguna Level {points}</strong><span></span></h1>
                     <div className='legend'>
                         <div>
-                            <span style={{backgroundColor: "#E21818"}}></span>
+                            <span style={{backgroundColor: "#D14545"}}></span>
                             <div className='legend-text'>
                                 <p>Lived there</p>
                                 <p>Level: 5</p>
                             </div>
                         </div>
                             <div>
-                            <span style={{backgroundColor: "#FF7F3F"}}></span>
+                            <span style={{backgroundColor: "#DF8c63"}}></span>
                             <div className='legend-text'>
                                 <p>Stayed there</p>
                                 <p>Level: 4</p>
@@ -437,7 +458,7 @@ const LagunaMap = () => {
                             </div>
                         </div>
                             <div>
-                                <span style={{backgroundColor: "#00235D"}}></span>
+                                <span style={{backgroundColor: "#2C5496"}}></span>
                                 <div className='legend-text'>
                                     <p>Passed there</p>
                                     <p>Level: 1</p>
