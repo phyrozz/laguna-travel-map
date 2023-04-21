@@ -1,70 +1,25 @@
-# Getting Started with Create React App
+# Laguna Travel Level App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This map let's you show your travel status around the province of Laguna, Philippines. You can play around with the map by clicking on each municipality then choosing which travel status fits on that place.
 
-## Available Scripts
+## Different Travel Status
+When you select a travel status for a municipality, it adds a certain point to the **Level** counter based on what status you picked. The more places you've stayed, for example, the higher your level is on the map.
 
-In the project directory, you can run:
+Here's a breakdown on the travel statuses:
 
-### `npm start`
+| Travel Status    | Level |
+|      :---:       | :---: |
+| Lived There      | 5     |
+| Stayed There     | 4     |
+| Visited There    | 3     |
+| Alighted There   | 2     |
+| Passed There     | 1     |
+| Never Been There | 0     |
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## How to share my app?
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+You can save your map after setting travel statuses by clicking on the `Save Map as Image` button. This will let you save your map as a `.jpg` image for you to share on social media.
 
-### `npm test`
+This project was inspired by [philippine-map-app](https://github.com/OSSPhilippines/philippine-map-app) so feel free to support their project as well!
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+**Happy travels!**

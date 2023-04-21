@@ -1,38 +1,232 @@
-.App {
+* {
+  font-family: 'Open Sans', sans-serif;
+}
+
+:root {
+  font-size: 18px;
+  background-color: #9dc3fb;
+}
+
+.map-bg {
+  fill: #9dc3fb;
+}
+
+svg {
+  height: 97vh;
+}
+
+.municipality-layer {
+  stroke: #000;
+  stroke-miterlimit: 10;
+  stroke-width: 3px;
+  cursor: pointer;
+}
+
+.options-container {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border-radius: 0.7rem;
+  border: 1px #000 solid;
+  font-weight: 800;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+}
+
+.options button {
+  border-radius: 0;
+  border: none;
+  background-color: inherit;
+  padding: 0.3rem;
+  text-align: left;
+  width: 175px;
+}
+
+.options button[value="lived"]:hover {
+  background-color: #E21818;
+  color: #fff;
+}
+
+.options button[value="stayed"]:hover {
+  background-color: #FF7F3F;
+}
+
+.options button[value="visited"]:hover {
+  background-color: #FFDD83;
+}
+
+.options button[value="alighted"]:hover {
+  background-color: #98DFD6;
+}
+
+.options button[value="passed"]:hover {
+  background-color: #00235D;
+  color: #fff;
+}
+
+.options button[value="never-been"]:hover {
+  background-color: #bbbbbb;
+  border-radius: 0 0 0.7rem 0.7rem;
+}
+
+.tooltip {
+  position: absolute;
+  padding: 12px;
+  background-color: #fff;
+  color: #000;
+  font-size: 14px;
+  font-weight: 800;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.level-container {
+  font-size: 14px;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  z-index: 1000;
+  top: 12px;
+  left: 25px;
+}
+
+.level-container h1 {
+  width: 100%;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.legend {
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: rgba(216, 216, 216, 0.8);
+  padding: 20px;
+  width: 250px;
+  border-radius: 10px;
+  border: 2px solid #000;
+}
+
+.legend span {
+  display: inline-block;
+  width: 25px;
+  height: 20px;
+  margin-right: 10px;
+  border-radius: 50%;
+  border: 1px solid #000;
+}
+
+.legend div {
+  height: 30px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.legend-text {
+  display: flex;
+  flex-direction: row;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  width: 100%;
 }
 
-.App-link {
-  color: #61dafb;
+.legend-text p {
+  white-space: nowrap;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.donation {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  width: 30vw;
+  font-size: 0.6rem;
+}
+
+#donation-btn input{
+  width: 7rem;
+}
+
+.buttons {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: 1rem;
+  right: 1rem;
+  width: 10rem;
+  gap: 0.3rem;
+}
+
+.btn {
+  text-decoration: none;
+  color: black;
+  background-color: white;
+  padding: 0.5rem;
+  border: 1px #000 solid;
+  border-radius: 0.3rem;
+  transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #bbbbbb;
+}
+
+.about-container {
+  text-align: center;
+  margin: 10vw;
+}
+
+table {
+  margin: auto;
+  width: 75vw;
+  background-color: #fff;
+}
+
+table, th, td {
+  padding: 0.3rem;
+  border: #000 1px solid;
+  border-collapse: collapse;
+}
+
+#return {
+  text-decoration: none;
+  color: #000;
+  transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  font-size: 0.8rem;
+}
+
+#return:hover {
+  color: #00235D;
+}
+
+@media only screen and (max-width: 600px) {
+  .level-container {
+    font-size: 2vw;
   }
-  to {
-    transform: rotate(360deg);
+
+  .legend {
+    padding: 3vw;
+    width: 35vw;
+  }
+
+  .legend div {
+    height: 4vw;
+  }
+
+  .legend span {
+    width: 3vw;
+    height: 2.5vw;
+  }
+
+  .buttons {
+    width: 40vw;
   }
 }
