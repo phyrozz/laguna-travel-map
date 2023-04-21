@@ -170,7 +170,7 @@ const About = () => {
                 </tr>
             </table>
             <h2>About the Developer</h2>
-            <p>Hi, I'm Joshua Malabanan, currently studying BSIT in PUP Santa Rosa. As a proud Lagunense, I decided to develop this web app out of boredom using <b>React</b> and with the help of some libraries like <b>react-router</b> and <b>html-to-image</b>. Feel free to submit bugs or issues with the app by going through the "Issues" on this github repo <a href="">here.</a></p>
+            <p>Hi, I'm Joshua Malabanan, currently studying BSIT in PUP Santa Rosa. As a proud Lagunense, I decided to develop this web app out of boredom using <b>React</b> and with the help of some libraries like <b>react-router</b> and <b>html-to-image</b>. Feel free to submit bugs or issues with the app by going through the "Issues" on this github repo <a href="https://github.com/phyrozz/laguna-travel-map">here.</a></p>
             <p>This app was inspired from another web app called <b>My Philippines Travel Map</b>. Feel free to check it out too <a href="https://www.my-philippines-travel-level.com/">here</a>.</p>
             <p>You can support this project by donating below. This will help maintain this website since there will be more maps to come!</p>
             <form id='donation-btn' action="https://www.paypal.com/donate" method="post" target="_top">
