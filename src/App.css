@@ -116,7 +116,7 @@ svg {
   padding: 0.7rem;
   width: 12rem;
   border-radius: 10px;
-  border: 2px solid #000;
+  border: 1px solid #000;
 }
 
 .legend span {
@@ -152,10 +152,14 @@ svg {
   position: fixed;
   display: flex;
   flex-direction: column;
-  text-align: right;
+  text-align: center;
+  background-color: white;
+  border: 1px #000 solid;
+  border-radius: 10px;
+  padding: 0.5rem;
   bottom: 1rem;
   right: 1rem;
-  width: 15rem;
+  width: 12rem;
   font-size: 0.6rem;
 }
 
@@ -219,7 +223,7 @@ table, th, td {
 
 @media only screen and (max-width: 768px) {
   :root {
-    font-size: 1.5vw;
+    font-size: 2vw;
   }
 
   .level-container {
@@ -227,12 +231,12 @@ table, th, td {
   }
 
   .legend {
-    padding: 1.75vw;
-    width: 29vw;
+    padding: 2vw;
+    width: 38vw;
   }
 
   .legend div {
-    height: 4vw;
+    height: 5vw;
   }
 
   .legend span {
@@ -253,12 +257,13 @@ table, th, td {
   }
 
   .buttons {
-    width: 23vw;
+    width: 28vw;
   }
 
   .buttons button {
     padding: 1.5vw;
     font-size: 1.2rem;
+    border-radius: 1.2vw;
   }
 
   table {
