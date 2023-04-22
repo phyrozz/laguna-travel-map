@@ -51,6 +51,7 @@ svg {
   padding: 0.3rem;
   text-align: left;
   width: 175px;
+  cursor: pointer;
 }
 
 .options button[value="lived"]:hover {
@@ -92,13 +93,13 @@ svg {
 }
 
 .level-container {
-  font-size: 14px;
+  font-size: 0.75rem;
   position: fixed;
   display: flex;
   align-items: center;
   flex-direction: column;
   z-index: 100;
-  top: 12px;
+  top: 0;
   left: 25px;
 }
 
@@ -111,9 +112,9 @@ svg {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: rgba(216, 216, 216, 0.8);
-  padding: 0.8rem;
-  width: 250px;
+  background-color: #fff;
+  padding: 0.7rem;
+  width: 12rem;
   border-radius: 10px;
   border: 2px solid #000;
 }
@@ -216,14 +217,18 @@ table, th, td {
   text-decoration: underline;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 768px) {
+  :root {
+    font-size: 1.5vw;
+  }
+
   .level-container {
-    font-size: 2vw;
+    font-size: 1.2rem;
   }
 
   .legend {
-    padding: 2vw;
-    width: 35vw;
+    padding: 1.75vw;
+    width: 29vw;
   }
 
   .legend div {
@@ -236,11 +241,24 @@ table, th, td {
   }
 
   .donation {
-    width: 40vw;
+    width: 20vw;
+  }
+
+  .donation p {
+    font-size: 1rem;
+  }
+
+  #donation-btn input {
+    width: 18vw;
   }
 
   .buttons {
-    width: 40vw;
+    width: 23vw;
+  }
+
+  .buttons button {
+    padding: 1.5vw;
+    font-size: 1.2rem;
   }
 
   table {

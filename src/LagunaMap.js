@@ -33,7 +33,7 @@ const LagunaMap = () => {
 
     const handleMunicipalityClick = (e) => {
         const bbox = e.target.getBBox();
-        setDropdownCoords({ x: bbox.x / 3, y: bbox.y / 4 });
+        setDropdownCoords({ x: (bbox.x / 3) + (window.innerWidth / 2) - 350, y: bbox.y / 4 });
         const municipality = e.target.id;
         setSelectedMunicipality(municipality);
         if (!municipalities[municipality]) {
